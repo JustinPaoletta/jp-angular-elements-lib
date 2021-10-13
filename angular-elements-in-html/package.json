@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "element-one": "0.0.3",
+    "element-three": "^0.0.0",
+    "element-two": "^0.0.1"
+  }
+}
