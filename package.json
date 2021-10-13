@@ -6,18 +6,21 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:element-two": "ng build --output-hashing=none && node ./concat-build.js"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~12.2.0",
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
     "@angular/core": "~12.2.0",
+    "@angular/elements": "^12.2.9",
     "@angular/forms": "~12.2.0",
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "concat": "^1.0.3",
+    "document-register-element": "^1.7.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

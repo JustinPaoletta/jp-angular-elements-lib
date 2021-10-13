@@ -1,18 +1,28 @@
-import { NgModule } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
+import { Injector, NgModule } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { ElementTwoComponent } from './element-two/element-two.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    ElementTwoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  entryComponents: [ElementTwoComponent],
+  providers: [{provide: APP_BASE_HREF, useValue : '/' }],
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector){}
+
+  ngDoBootstrap(){
+    const elementTwo = createCustomElement(ElementTwoComponent, {injector: this.injector});
+    customElements.define('element-two', elementTwo);
+  }
+}
